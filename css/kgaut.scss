@@ -1,0 +1,81 @@
+$radius: 15px;
+
+$color1: #FF9900;
+$color2: #9900FF;
+$color3: #0099FF;
+$color4: #FF0099;
+$color5: #00FF99;
+
+.color1 {
+  color: $color1;
+}
+
+.color2 {
+  color: $color2;
+}
+
+.color3 {
+  color: $color3;
+}
+
+.color4 {
+  color: $color4;
+}
+
+.color5 {
+  color: $color5;
+}
+.reveal {
+  section {
+    pre {
+      &.large {
+        width: 100%;
+      }
+    }
+    code {
+      border-radius: $radius;
+    }
+    img {
+      border-radius: $radius;
+      &.no-border {
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+      &#img-svg {
+        background-color: white;
+      }
+      &.current-visible {
+        height: 0;
+        &.current-fragment {
+          height: auto;
+        }
+      }
+    }
+    .half {
+      width: 49%;
+      &:first-of-type {
+        float: left;
+      }
+      &:last-of-type {
+        float: right;
+      }
+    }
+    .third {
+      width: 31%;
+      float: left;
+      margin: 0 2px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+
+
+

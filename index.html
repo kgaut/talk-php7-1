@@ -4,9 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Découvrir Drupal Console</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/kgaut.css">
 		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
@@ -24,8 +25,382 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<section>
+						<h1>Drupal Console</h1>
+                        <img src="img/drupal-console-logo.png" class="no-border" />
+                        <h2>Drupal Camp Nantes - 11 Juin 2016</h2>
+                        <p class="small">Kevin Gautreau / contact@kgaut.net / @kgaut</p>
+					</section>
+					<section data-autoslide="1000">
+						<h1>$ whois</h1>
+						<h3>Kevin Gautreau</h3>
+                        <div class="half">
+                            <img src="img/wam.jpeg" />
+                        </div>
+                        <div class="half">
+                            <ul>
+                                <li class="fragment" data-autoslide="1000">Développeur web freelance</li>
+                                <li class="fragment" data-autoslide="1000"><strike>Annecy</strike> => Clermont-Ferrand</li>
+                                <li class="fragment" data-autoslide="1000">PHP / Spécialisé drupal</li>
+                                <li class="fragment" data-autoslide="1000">Twitter : <a href="https://www.twitter.com/kgaut">@kgaut</a></li>
+                                <li class="fragment" data-autoslide="1000">Github : <a href="https://www.github.com/kgaut">@kgaut</a></li>
+                                <li class="fragment" data-autoslide="0">Site : <a href="https://kgaut.net">https://kgaut.net</a></li>
+                            </ul>
+                        </div>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Plan</h1>
+						<ul>
+							<li class="fragment" data-autoslide="1000">Intro - Questions</li>
+							<li class="fragment" data-autoslide="1000">Drupal 7 - c'était pas si mal</li>
+							<li class="fragment" data-autoslide="1000">Drupal 8 - qu'est-ce qui change ?</li>
+							<li class="fragment" data-autoslide="1000">Drupal Console</li>
+							<li class="fragment" data-autoslide="1000">Génération de machins</li>
+							<li class="fragment" data-autoslide="1000">Console vs Drush</li>
+							<li class="fragment" data-autoslide="0">Jubilation, questions, applaudissements, standing ovation...</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Introduction</h1>
+						<p>4 questions</p>
+						<ul>
+							<li class="fragment">Qui a déjà installé un drupal 8 ?</li>
+							<li class="fragment">Qui a déjà écrit un module drupal 8 ?</li>
+							<li class="fragment">Qui a pleuré des larmes de sang ?</li>
+							<li class="fragment">Qui a testé Drupal Console ?</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Drupal 7</h1>
+						<h2>Finalement c'était pas si mal</h2>
+						<img class="no-border" src="img/Trollface.png" />
+					</section>
+					<section data-autoslide="1000">
+						<h1>Un module Drupal 7</h1>
+						<h2 class="fragment" data-autoslide="1000">= 2 fichiers</h2>
+						<div class="half fragment" data-autoslide="1000">
+							mon_module.info
+						</div>
+						<div class="half fragment" data-autoslide="0">
+							mon_module.module
+						</div>
+					</section>
+					<section>
+						<h1>*.module trop long ?</h1>
+						<div class="half">
+							mon_module.info
+							<pre><code data-trim data-noescape>
+files[] = mon_module.front.inc
+							</code></pre>
+						</div>
+						<div class="half">
+							mon_module.front.inc
+							<pre><code data-trim data-noescape>
+mon_module_HOOK() {
+	...
+}
+							</code></pre>
+						</div>
+					</section>
+					<section>
+						<h1>Un poil de POO ?</h1>
+						<div class="half">
+							mon_module.info
+							<pre><code data-trim data-noescape>
+files[] = maclasse.class.inc
+							</code></pre>
+						</div>
+						<div class="half">
+							maclasse.class.inc
+							<pre><code data-trim data-noescape>
+class MaClass {
+	...
+}
+							</code></pre>
+						</div>
+					</section>
+					<section>
+						<h1>Des outils</h1>
+						<p>Module builder, associé à drush</p>
+						<pre><code>drush @alias mb mon_module --write</code></pre>
+						<ul>
+							<li>Gestion des dépendances</li>
+							<li>Pré-configuration de hook</li>
+							<li>...</li>
+						</ul>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Mais au final...</h1>
+						<ul>
+							<li class="fragment" data-autoslide="1000">Création à la main</li>
+							<li class="fragment" data-autoslide="0">copier/coller depuis d'autres modules</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section data-autoslide="1000">
+						<h1>Drupal 8, qu'est ce qui change ?</h1>
+						<h2 class="fragment" data-autoslide="0">Spoiler : tout</h2>
+					</section>
+					<section>
+						<h1>Enfin presque...</h1>
+						<div class="half">
+							mon_module.info.yml
+						</div>
+						<div class="half">
+							mon_module.module
+						</div>
+					</section>
+					<section>
+						<h1>Mais quand même</h1>
+						<p>Norme PSR4 => impose une architecture</p>
+						<pre><code>
+mon_module/
+	src/
+		Controller/
+			MonModule.php
+		Entity/
+			Controller/
+			Form/
+		Form/
+		Plugin/
+		Test/
+	mon_module.info.yml
+	mon_module.libraries.yml
+	mon_module.service.yml
+	mon_module.module
+						</code></pre>
+					</section>
+					<section>
+						<h1>Bref...</h1>
+						<p>C'est verbeux...</p>
+					</section>
+					<section>
+						<h1>Heureusement ! </h1>
+						<p>Drupal Console</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Drupal Console</h1>
+						<img src="img/drupal-console-logo.png" class="no-border" />
+					</section>
+					<section data-autoslide="1000">
+						<h1>Qu'est-ce que Drupal Console</h1>
+						<p class="fragment" data-autoslide="1000">Portage de la console Symfony pour Drupal</p>
+						<p class="fragment" data-autoslide="1000">Un outil en ligne de commande pour assister le développement sous Drupal 8</p>
+						<ul>
+							<li class="fragment" data-autoslide="1000">Accélerer le développement de module</li>
+							<li class="fragment" data-autoslide="1000">Intéragir avec une installation de Drupal 8</li>
+							<li class="fragment" data-autoslide="0">Débugguer une installation de Drupal 8</li>
+						</ul>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Accélerer le développement</h1>
+						<ul>
+							<li class="fragment" data-autoslide="1000">Génération de la structure d'un module</li>
+							<li class="fragment" data-autoslide="1000">Génération d'un type d'entité</li>
+							<li class="fragment" data-autoslide="1000">Génération de formulaire</li>
+							<li class="fragment" data-autoslide="1000">Génération de block</li>
+							<li class="fragment" data-autoslide="0">Génération de ...</li>
+						</ul>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Intéragir avec une instance D8</h1>
+						<ul>
+							<li class="fragment" data-autoslide="1000">Téléchargement de modules</li>
+							<li class="fragment" data-autoslide="0">Lecture / Écriture de la config</li>
+						</ul>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Débugguer</h1>
+						<ul>
+							<li class="fragment" data-autoslide="1000">Liste des routes</li>
+							<li class="fragment" data-autoslide="0">
+								Passer le site en mode dev
+								<pre><code>drupal site:mode dev</code></pre>
+							</li>
+						</ul>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Mais encore ?</h1>
+						<ul>
+							<li class="fragment" data-autoslide="1000">Scripts chaînés</li>
+							<li class="fragment" data-autoslide="0">Création de fonction custom...</li>
+						</ul>
+					</section>
+					<section>
+						<h1>$ whois Drupal console ?</h1>
+						<img src="img/whois-drupal-console.png" /><br />
+						<img src="img/drupal-console-en-chiffre.png" />
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Let's get started</h1>
+                        <img src="img/gif/exo-keyboard3.gif" />
+					</section>
+					<section>
+						<h1>Installation</h1>
+						<h2>GNU/Linux & MacOS</h2>
+						<pre><code>
+curl https://drupalconsole.com/installer -L -o drupal.phar
+sudo mv drupal.phar /usr/local/bin/drupal
+sudo chmod +x /usr/local/bin/drupal
+						</code></pre>
+					</section>
+					<section>
+						<h1>Installation</h1>
+						<h2>Windows</h2>
+						Dans le dossier des binaires de php :
+						<pre><code>
+php -r "readfile('https://drupalconsole.com/installer');" > drupal.phar
+						</code></pre>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Premier test</h1>
+						<pre><code>
+	drupal check
+						</code></pre>
+						<p class="fragment" data-autoslide="1000">Si tout va bien, c'est bien</p>
+						<p class="fragment" data-autoslide="1000">Sinon, affichage des extensions php manquantes (php-curl entre autres)</p>
+						<img class="fragment" src="img/drupal-check.png"  data-autoslide="0" />
+					</section>
+					<section>
+						<h1>Génération des fichiers de config</h1>
+						<pre><code>
+	drupal init
+						</code></pre>
+						<p>Note : Ajouter --override pour les re-générer</p>
+						<img src="img/drupal-init.png" />
+					</section>
+					<section>
+						<h1>Démo Kickstart Drupal 8</h1>
+						<pre><code>
+	drupal chain --file=~/.console/chain/quick-start.yml
+						</code></pre>
+						<p>Commande chainée :</p>
+						<ul>
+							<li>Téléchargement dernière version drupal</li>
+							<li>Installation</li>
+							<li>Lancement du serveur interne PHP</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Démo Kickstart Configuré</h1>
+						<pre><code>
+	drupal chain --file=~/.console/chain/quick-start-custom.yml
+						</code></pre>
+						<p class="fragment">/!\ Cassé dans la version 1.0.0-beta2</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Générons des trucs !</h1>
+					</section>
+					<section>
+						<h1>Génération de modules</h1>
+						<pre><code>
+	drupal generate:module
+						</code></pre>
+					</section>
+					<section>
+						<h1>Génération d'un block</h1>
+						<pre><code>
+	drupal generate:plugin:block
+						</code></pre>
+					</section>
+					<section>
+						<h1>Génération d'un type d'entité</h1>
+						<pre><code>
+	drupal generate:entity:content
+						</code></pre>
+					</section>
+					<section>
+						<h1>Génération d'*</h1>
+						<img src="img/drupal-generate.png" />
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>En vrac</h1>
+						<h2>Car on peut faire encore plein de choses</h2>
+					</section>
+					<section>
+						<h1>Téléchargement de module</h1>
+						<pre><code>drupal module:download pathauto</code></pre>
+						<p>Attention : mieux vaut utiliser composer (pour l'instant)</p>
+					</section>
+					<section>
+						<h1>Installation de module</h1>
+						<pre><code>drupal module:install pathauto</code></pre>
+					</section>
+					<section>
+						<h1>Installation d'une nouvelle langue</h1>
+						<pre><code>drupal locale:translation:add</code></pre>
+					</section>
+					<section>
+						<h1>Gestion de la config</h1>
+						<pre><code>drupal config:export</code></pre>
+						<pre><code>drupal config:import</code></pre>
+						<pre><code>drupal config:diff</code></pre>
+					</section>
+					<section>
+						<h1>Découvrir les commandes</h1>
+						<p>Avec l'auto-completion : </p>
+						<pre><code>drupal generate: **tab tab**</code></pre>
+						<p>Avec la commande list*</p>
+						<pre><code>drupal list</code></pre>
+						<p><em>* À la racine d'une instance Drupal</em></p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Console vs Drush (vs Composer)</h1>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Drupal console remplace Drush ?</h1>
+						<h1>TL;DR : non</h1>
+						<p class="fragment" data-autoslide="1000">Pour l'instant non.</p>
+						<p class="fragment" data-autoslide="0">À terme ? fusion ?</p>
+					</section>
+					<section data-autoslide="1000">
+						<h1>Mon usage</h1>
+						<p class="fragment" data-autoslide="1000">Opération de management de projet : Drush</p>
+						<p class="fragment" data-autoslide="1000">Scaffolding / Génération : Console</p>
+						<p class="fragment" data-autoslide="1000">Modules tiers, patchs : Composer <span class="fragment" data-autoslide="0"><em>(pour l'instant ?)</em></span></p>
+					</section>
+					<section>
+						<h1>Script de déploiement</h1>
+						<pre><code>
+git pull origin master
+composer install
+drush cr
+drush entity-updates
+drush updatedb
+drush config-import
+drush cache-rebuild
+						</code></pre>
+
+
+					</section>
+				</section>
+				<section data-autoslide="1000">
+					<h1>Merci</h1>
+					<h2>Des questions ?</h2>
+					<ul>
+						<li class="fragment" data-autoslide="1000">Présentation : <a href="http://drupal-console.formations.kgaut.net/">http://drupal-console.formations.kgaut.net/</a> </li>
+						<li class="fragment" data-autoslide="1000">Exemple : <a href="https://github.com/kgaut/talk-drupal-console/tree/master/examples">https://github.com/kgaut/talk-drupal-console/tree/master/examples</a> </li>
+						<li class="fragment" data-autoslide="1000">Twitter : <a href="https://www.twitter.com/kgaut">@kgaut</a></li>
+						<li class="fragment" data-autoslide="1000">Github : <a href="https://www.github.com/kgaut">@kgaut</a></li>
+						<li class="fragment" data-autoslide="0">Site : <a href="https://kgaut.net">https://kgaut.net</a></li>
+					</ul>
+				</section>
 			</div>
 		</div>
 
@@ -36,7 +411,11 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
-
+				width: 1920,
+				height: 1080,
+				//slideNumber: true,
+				slideNumber: 'c/t',
+				mouseWheel: true,
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -46,5 +425,20 @@
 				]
 			});
 		</script>
+		<script type="text/javascript">
+			var _paq = _paq || [];
+			_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+			_paq.push(["setDomains", ["*.formations.kgaut.net"]]);
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//pw.kgaut.net/";
+				_paq.push(['setTrackerUrl', u+'piwik.php']);
+				_paq.push(['setSiteId', 4]);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//pw.kgaut.net/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
 	</body>
 </html>

@@ -1,0 +1,50 @@
+.color1 {
+  color: #FF9900; }
+
+.color2 {
+  color: #9900FF; }
+
+.color3 {
+  color: #0099FF; }
+
+.color4 {
+  color: #FF0099; }
+
+.color5 {
+  color: #00FF99; }
+
+.reveal section pre.large {
+  width: 100%; }
+
+.reveal section code {
+  border-radius: 15px; }
+
+.reveal section img {
+  border-radius: 15px; }
+  .reveal section img.no-border {
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none; }
+  .reveal section img#img-svg {
+    background-color: white; }
+  .reveal section img.current-visible {
+    height: 0; }
+    .reveal section img.current-visible.current-fragment {
+      height: auto; }
+
+.reveal section .half {
+  width: 49%; }
+  .reveal section .half:first-of-type {
+    float: left; }
+  .reveal section .half:last-of-type {
+    float: right; }
+
+.reveal section .third {
+  width: 31%;
+  float: left;
+  margin: 0 2px; }
+  .reveal section .third:first-of-type {
+    margin-left: 0; }
+  .reveal section .third:last-of-type {
+    margin-right: 0; }
