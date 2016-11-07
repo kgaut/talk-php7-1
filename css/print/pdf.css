@@ -158,23 +158,3 @@ ul, ol, div, p {
 	font-size: 14px;
 }
 
-.reveal section img {
-	border-radius: 15px; }
-.reveal section img.no-border {
-	border-radius: 0;
-	background: transparent;
-	border: none;
-	box-shadow: none; }
-.reveal section img#img-svg {
-	background-color: white; }
-.reveal section img.current-visible {
-	height: 0; }
-.reveal section img.current-visible.current-fragment {
-	height: auto; }
-
-.reveal section .half {
-	width: 49%; }
-.reveal section .half:first-of-type {
-	float: left; }
-.reveal section .half:last-of-type {
-	float: right; }

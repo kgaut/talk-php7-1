@@ -18,6 +18,7 @@ module.exports = function(grunt) {
 		},
 
 		qunit: {
+			files: [ 'test/*.html' ]
 		},
 
 		uglify: {
@@ -34,7 +35,6 @@ module.exports = function(grunt) {
 			core: {
 				files: {
 					'css/reveal.css': 'css/reveal.scss',
-					'css/kgaut.css': 'css/kgaut.scss'
 				}
 			},
 			themes: {
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
 				tasks: 'css-themes'
 			},
 			css: {
-				files: [ 'css/reveal.scss','css/kgaut.scss' ],
+				files: [ 'css/reveal.scss' ],
 				tasks: 'css-core'
 			},
 			html: {
@@ -153,7 +153,7 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'default', [ 'css', 'js' ] );
 
 	// JS task
-	grunt.registerTask( 'js', [ 'jshint' ] );
+	grunt.registerTask( 'js', [ 'jshint', 'uglify', 'qunit' ] );
 
 	// Theme CSS
 	grunt.registerTask( 'css-themes', [ 'sass:themes' ] );
