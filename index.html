@@ -96,7 +96,7 @@
 						<ul>
 							<li class="fragment">1 version mineure par an</li>
 							<li class="fragment">Compatibilité assendante entre les version mineures</li>
-							<li class="fragment">Démocratie par RFC </li>
+							<li data-autoslide="0" class="fragment">Démocratie par RFC </li>
 						</ul>
 					</section>
 					<section>
@@ -110,11 +110,9 @@
 					<section data-autoslide="1000">
 						<h1>PHP 7.1</h1>
 						<ul>
-							<li>Sortie </li>
-							<li>RC5 sortie le 27/10/2016</li>
-							<li>RC6 sortie le 10/11/2016</li>
-							<li>Finale? sortie le 2*/11/2016</li>
-							<li data-autoslide="0" ></li>
+							<li class="fragment">RC5 sortie le 27/10/2016</li>
+							<li class="fragment">RC6 sortie le 10/11/2016</li>
+							<li class="fragment" data-autoslide="0">Finale? sortie le 2*/11/2016</li>
 						</ul>
 					</section>
 					<section>
@@ -224,8 +222,8 @@ print "<p>je suis là</p>";</code></pre>
 						</div>
 					</section>
 					<section>
-						<h1>Les tableaux de String</h1>
-						<h1>Exemple : Résultat</h1>
+						<h1>En vrac</h1>
+						<h2>Les tableaux de String</h2>
 						<pre><code>$string = "hello world";
 
 echo($string[4].'<br />'); //=>"o"
@@ -255,7 +253,7 @@ echo($string.'<br />'); //=>"hello warld"
 						</ul>
 					</section>
 					<section>
-						<h1>Exemple docker-composer</h1>
+						<h1>Exemple docker-compose</h1>
 						./docker-compose.yaml
 						<pre><code>
 
@@ -270,7 +268,7 @@ services:
 						</code></pre>
 					</section>
 					<section>
-						<h1>Exemple docker-composer</h1>
+						<h1>Exemple docker-compose</h1>
 						./www/index.php
 						<pre><code>phpinfo();</code></pre>
 					</section>
@@ -278,6 +276,25 @@ services:
 						<pre><code>$ docker-compose up</code></pre>
 						<p><a href="http://127.0.0.1:3012">http://127.0.0.1:3012</a></p>
 						<img src="img/php_7.1.png" />
+					</section>
+					<section>
+						<h1>Exemple docker-compose</h1>
+						./docker-compose.yaml
+						<pre><code>version: "2"
+services:
+  php70:
+    image: php:7.0-apache
+    ports:
+      - 3070:80
+    volumes:
+      - ./php-test:/var/www/html
+
+  php71:
+    image: php:7.1.0RC5-apache
+    ports:
+      - 3071:80
+    volumes:
+      - ./php-test:/var/www/html</code></pre>
 					</section>
 				</section>
 			</div>
