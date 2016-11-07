@@ -1,0 +1,8 @@
+version: "2"
+services:
+  web:
+    image: php:7.1.0RC5-apache
+    ports:
+      - 3012:80
+    volumes:
+      - ./php-test:/var/www/html

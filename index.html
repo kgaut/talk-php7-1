@@ -122,6 +122,40 @@
 						</ul>
 					</section>
 				</section>
+				<section>
+					<section>
+						<h1>Tester PHP 7.1 ?</h1>
+						<ul>
+							<li>Via la compilation</li>
+							<li>Via docker (image php:7.1.0RC5-apache)</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Exemple docker-composer</h1>
+						./docker-compose.yaml
+						<pre><code>
+
+version: "2"
+services:
+  web:
+    image: php:7.1.0RC5-apache
+    ports:
+      - 3012:80
+    volumes:
+      - ./www:/var/www/html
+						</code></pre>
+					</section>
+					<section>
+						<h1>Exemple docker-composer</h1>
+						./www/index.php
+						<pre><code>phpinfo();</code></pre>
+					</section>
+					<section>
+						<pre><code>$ docker-compose up</code></pre>
+						<p><a href="http://127.0.0.1:3012">http://127.0.0.1:3012</a></p>
+						<img src="img/php_7.1.png" />
+					</section>
+				</section>
 			</div>
 		</div>
 
