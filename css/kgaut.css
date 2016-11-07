@@ -48,3 +48,6 @@
     margin-left: 0; }
   .reveal section .third:last-of-type {
     margin-right: 0; }
+
+.reveal section span.blue {
+  color: #777BB3; }

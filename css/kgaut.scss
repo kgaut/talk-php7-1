@@ -5,6 +5,7 @@ $color2: #9900FF;
 $color3: #0099FF;
 $color4: #FF0099;
 $color5: #00FF99;
+$blue : #777BB3;
 
 .color1 {
   color: $color1;
@@ -25,6 +26,8 @@ $color5: #00FF99;
 .color5 {
   color: $color5;
 }
+
+
 .reveal {
   section {
     pre {
@@ -72,6 +75,9 @@ $color5: #00FF99;
       &:last-of-type {
         margin-right: 0;
       }
+    }
+    span.blue {
+      color: $blue;
     }
   }
 }

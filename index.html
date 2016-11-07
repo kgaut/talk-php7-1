@@ -7,6 +7,7 @@
 		<title>Les nouveautés de PHP 7.1</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/kgaut.css">
 		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
@@ -31,7 +32,7 @@
 						<h2>Clermont'tech - 7 Novembre 2016</h2>
 						<p class="small">Kevin Gautreau / contact@kgaut.net / @kgaut</p>
 					</section>
-					<section data-autoslide="1000">
+					<section>
 						<h1>$ whois</h1>
 						<h3>Kevin Gautreau</h3>
 						<div class="half">
@@ -56,30 +57,39 @@
 					<section>
 						<h1>Un petit historique</h1>
 					</section>
-					<section>
-						<h1>Personnal Hypertext Processor</h1>
-						<ul>
-							<li class="fragment">Développé par Rasmus leedorf</li>
-						</ul>
+					<section data-autoslide="1000">
+						<h1>PHP: Hypertext Preprocessor</h1>
+						<div class="half">
+							<img src="img/rasmus_lerdorf.jpg" />
+						</div>
+
+						<div class="half">
+							<ul>
+								<li class="fragment">Créé par Rasmus Lerdorf (1994) PHP/FI</li>
+								<li class="fragment">Core réécrit par <span class="blue">Ze</span>ev Suraski et A<span class="blue">nd</span>i Gutmans (PHP 3 puis 4)</li>
+								<li data-autoslide="0" class="fragment">Licence Libre</li>
+							</ul>
+						</div>
 					</section>
-					<section>
+					<section data-autoslide="1000">
 						<h1>PHP 6 : la bonne blague</h1>
 						<div class="half">
-							<img class="fragment no-border" src="img/Trollface.png" />
+							<img src="img/php-6-annoucement.png" />
 						</div>
 						<div class="half">
 							<ul>
-								<li class="fragment"><strong>Objectif :</strong> Support de l'unicode</li>
+								<li class="fragment"><strong>Objectif :</strong> Support de l'unicode (UTF-16)</li>
+								<li class="fragment">Démarrée en 2005</li>
 								<li class="fragment">Longtemps retardé</li>
-								<li class="fragment">Finalement annulé...</li>
-								<li class="fragment">Sortie de PHP 5.3</li>
+								<li class="fragment">Sortie de PHP 5.3 en 2009</li>
+								<li class="fragment">Finalement annulé en 2010</li>
+								<li data-autoslide="0" class="fragment">Préparation de PHP 5.4 en 2010 (sortie en 2012)</li>
 							</ul>
 						</div>
 					</section>
 					<section>
 						<h1>PHP 7 : Une version majeure</h1>
 						<ul>
-							<li class="fragment">Grosse amélioration des performances</li>
 							<li class="fragment">Grosse amélioration des performances</li>
 						</ul>
 					</section>
@@ -94,7 +104,9 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
-
+				width: 1920,
+				height: 1080,
+				slideNumber: 'c/t',
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -104,5 +116,20 @@
 				]
 			});
 		</script>
+		<script type="text/javascript">
+			var _paq = _paq || [];
+			_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+			_paq.push(["setDomains", ["*.formations.kgaut.net"]]);
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//pw.kgaut.net/";
+				_paq.push(['setTrackerUrl', u+'piwik.php']);
+				_paq.push(['setSiteId', 4]);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
+		<noscript><p><img src="//pw.kgaut.net/piwik.php?idsite=4" style="border:0;" alt="" /></p></noscript>
 	</body>
 </html>

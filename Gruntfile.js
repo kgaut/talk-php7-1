@@ -35,6 +35,7 @@ module.exports = function(grunt) {
 			core: {
 				files: {
 					'css/reveal.css': 'css/reveal.scss',
+					'css/kgaut.css': 'css/kgaut.scss'
 				}
 			},
 			themes: {
@@ -122,7 +123,7 @@ module.exports = function(grunt) {
 				tasks: 'css-themes'
 			},
 			css: {
-				files: [ 'css/reveal.scss' ],
+				files: [ 'css/reveal.scss', 'css/kgaut.scss' ],
 				tasks: 'css-core'
 			},
 			html: {
@@ -171,6 +172,6 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
 
 	// Run tests
-	grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );
+	//grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );
 
 };
