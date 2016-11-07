@@ -161,6 +161,63 @@ function mon_carre(?int $monEntier) : ?int {
 
 						</code></pre>
 					</section>
+					<section>
+						<h1>Les Exceptions</h1>
+						<pre><code>class Lorem extends Exception {}
+class Ipsum extends Exception {}
+class Dolores extends Exception {}
+
+try {
+  switch (mt_rand(1, 3)) {
+    case 1: throw new Lorem();
+    case 2: throw new Ipsum();
+    case 3: throw new Dolores();
+  }
+}
+catch (Lorem | Ipsum $e) {
+  printf("1er catch : %s\n", get_class($e));
+}
+catch (Dolores $e) {
+  printf("2nd catch : %s\n", get_class($e));
+}
+
+						</code></pre>
+					</section>
+					<section>
+						<h1>Try/Catch des fatal error</h1>
+						<pre><code>try {
+  //Code qui déclenche une fatal error
+}
+catch (Error $e) {
+  print 'Erreur : '. $e->getMessage();
+}
+
+						</code></pre>
+					</section>
+					<section>
+						<h1>Try/Catch des fatal error</h1>
+						<h1>Exemple : code</h1>
+						<pre><code>$serialized = 'O:8:"DateTime":3:{s:4:"date";s:26:"2016-08-14 12:31:50.000000";s:13:"timezone-type";i:3;s:8:"timezone";s:3:"UTC";}';
+try {
+  $dt = unserialize($serialized);
+}
+catch (Error $e) {
+  //Théoriquement ici je log quelque chose
+}
+print "<p>je suis là</p>";</code></pre>
+					</section>
+					<section>
+						<h1>Try/Catch des fatal error</h1>
+						<h1>Exemple : Résultat</h1>
+						<div class="half">
+							<h3>php 7.0</h3>
+							<img src="img/error-php7.0.png" />
+						</div>
+						<div class="half">
+							<h3>php 7.1</h3>
+							<img src="img/error-php7.1.png" />
+						</div>
+					</section>
 				</section>
 				<section>
 					<section>
