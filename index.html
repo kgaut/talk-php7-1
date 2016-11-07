@@ -121,6 +121,46 @@
 							<li data-autoslide="0" ></li>
 						</ul>
 					</section>
+					<section>
+						<h1>Le typage</h1>
+						<h2>Amené par PHP 7.0</h2>
+						<pre><code>
+function ma_fonction(int $monEntier) {
+	echo $monEntier;
+}
+
+						</code></pre>
+						<p>Probleme : impossible de passer "null"</p>
+						<pre><code>ma_fonction(null);=> error</code></pre>
+					</section>
+					<section>
+						<h1>Nullable Types</h1>
+						<h2>Opérateur "?"</h2>
+						<h3>?int ?string</h3>
+						<pre><code>
+function ma_fonction(?int $monEntier) {
+  if(is_null($monEntier)) {
+    echo 'pas de nombre <br />';
+  }
+  echo $monEntier.'<br />';
+}
+
+ma_fonction(null);
+
+						</code></pre>
+					</section>
+					<section>
+						<h1>Nullable Types - Return</h1>
+						<pre><code>
+function mon_carre(?int $monEntier) : ?int {
+  if(is_null($monEntier)) {
+    return null;
+  }
+  return $monEntier*$monEntier;
+}
+
+						</code></pre>
+					</section>
 				</section>
 				<section>
 					<section>
